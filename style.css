@@ -1,0 +1,97 @@
+* {
+    margin:0;
+    padding:0;
+    outline:none;
+    transition:all 0.5s;
+    font-family:"Raleway", sans-serif;
+    font-weight:bold;
+}
+
+body {
+    text-align:center;
+    height:100%;
+}
+
+button {
+    cursor:pointer;
+}
+
+#waiting {
+    color:grey;
+}
+
+#nameBox {
+    padding:5px;
+    border:green solid 1px;
+    border-radius:5px;
+    width:140px;
+}
+
+#attend {
+    padding:5px;
+    cursor:pointer;
+    border:green solid 1px;
+    border-radius:5px;
+    background-color:transparent;
+}
+
+#attend:hover {
+    text-decoration:underline;
+}
+
+#thoseAttending {
+    background-color:lightgray;
+    border-radius:5px;
+    border:transparent solid 1px;
+    width:200px;
+    padding:5px;
+    text-align:left;
+    height:auto;
+    margin:auto;
+}
+
+#information {
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    position:fixed;
+    right:10px;
+    border:black solid 1px;
+    background-color:gray solid 1px;
+    bottom:10px;
+}
+
+#informationBox {
+    position:fixed;
+    background-color:white;
+    width:100%;
+    height:100%;
+    opacity:0;
+    pointer-events:none;
+    z-index:1;
+}
+
+a {
+    text-decoration:none;
+}
+
+a:hover {
+    text-decoration:underline;
+}
+
+.infoP {
+    width:300px;
+    margin:auto;
+}
+
+#closeInfo {
+    background-color:transparent;
+    border:black solid 1px;
+    border-radius:5px;
+    padding:5px;
+    width:50px;
+}
+
+button:hover {
+    text-decoration:underline;
+}
