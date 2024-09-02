@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+        <title>Page Title</title>
+    </head>
+    <body>
+        <div id = "informationBox">
+            <br>
+            <p class = "infoP">Address | <a target = "_blank" href = "https://www.google.com/maps/place/Miller's+Crest+Park/@40.1998732,-77.0147571,17z/data=!3m1!4b1!4m6!3m5!1s0x89c8e7d191267ff1:0xd6bbb96f649097a!8m2!3d40.1998732!4d-77.0147571!16s%2Fg%2F11fr_35mmb?hl=en&entry=ttu&g_ep=EgoyMDI0MDgyOC4wIKXMDSoASAFQAw%3D%3D">621 Old Grove Rd, Mechanicsburg, PA 17055</a></p>
+            <br>
+            <p class = "infoP">Time | Saturday, 8:30 AM - 10:00 AM</p>
+            <br>
+            <button id = "closeInfo" onclick = "closeInfo()">Ok</button>
+        </div>
+
+        <button onclick = "openInfo()" id = "information"><i class="fa-solid fa-circle-info fa-lg"></i></button>
+
+        <br>
+        
+        <input placeholder="Type attendee name..." id="nameBox" />
+        <button id="attend" onclick="attend()">Attend</button>
+        <br><br>
+        <div id="thoseAttending"><span id = "waiting">Waiting for sign ups...</span></div>
+        
+        <br>
+        
+        <p>Capacity: <span id = "students">0</span>/20</p>
+
+        <br>
+        <script>
+            // Variables
+            var nameBox = document.getElementById ("nameBox");
+            var attendButton = document.getElementById ("attend");
+            var thoseAttending = document.getElementById ("thoseAttending");
+            var currentStudentsText = document.getElementById ("students");
+            var currentStudents=parseInt(currentStudentsText.innerHTML);
+            var infoBox = document.getElementById ("informationBox");
+
+            // Atend event
+            function attend() {
+                if (nameBox.value!="") {
+                    thoseAttending.innerHTML += nameBox.value + "<br>";
+                    nameBox.value = "";
+                    currentStudentsText.innerHTML = currentStudents++;
+                
+                    if (currentStudents==1) {
+                        document.getElementById ("waiting").innerHTML=""
+                        currentStudentsText.innerHTML="1";
+                        currentStudents++;
+                    }
+                    if (currentStudents==21) {
+                        attendButton.disabled = true;
+                        attendButton.style.textColor = "grey";
+                    }
+                }
+            }
+
+            // Check enter key press
+            nameBox.addEventListener("keyup", (event) => {
+                if (event.key === "Enter" && currentStudents<=20 && nameBox.value!="") {
+                    attend();
+                }
+            });
+
+            // Open info box
+            function openInfo () {
+                infoBox.style.opacity = "1";
+                infoBox.style.pointerEvents = "all";
+            }
+
+            // Close info box
+            function closeInfo () {
+                infoBox.style.opacity = "0";
+                infoBox.style.pointerEvents = "none";
+            }
+        </script>
+    </body>
+</html>
